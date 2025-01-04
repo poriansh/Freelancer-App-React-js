@@ -3,7 +3,6 @@ import Login from "./pages/Login";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {Toaster} from "react-hot-toast";
 import CompleteProfile from "./pages/CompleteProfile";
-import Home from "./pages/Home";
 import Notfound from "./pages/Notfound";
 import Applayout from "./ui/Applayout";
 import OwnerDashbord from "./pages/OwnerDashbord";
@@ -52,12 +51,12 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/CompleteProfile" element={<CompleteProfile />} />
           <Route path="/owner" element={<Applayout />}>
-            <Route index element={<Navigate to="dashbord" replace/>} />
+            <Route index element={<Navigate to="dashbord" replace />} />
             <Route path="dashbord" element={<OwnerDashbord />} />
             <Route path="projects" element={<Projects />} />
             <Route path="project/:id" element={<SingleProject />} />
           </Route>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigate to="/Login" replace />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </QueryClientProvider>
