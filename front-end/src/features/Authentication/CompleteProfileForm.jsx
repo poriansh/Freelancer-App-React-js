@@ -1,4 +1,3 @@
-import {useState} from "react";
 import Button from "../../ui/Button";
 import RedioInput from "../../ui/RedioInput";
 import Textfield from "../../ui/Textfield";
@@ -7,20 +6,23 @@ import {completProfile} from "../../services/AthService";
 import {useMutation} from "@tanstack/react-query";
 import Loading from "../../ui/Loading";
 import {useNavigate} from "react-router-dom";
+import {useForm} from "react-hook-form";
 
 function CompleteProfileForm() {
-  const [name, setname] = useState();
-  const [email, setemail] = useState();
-  const [role, setrole] = useState();
+  const {
+    register,
+    handleSubmit,
+    formState: {errors},
+    watch,
+  } = useForm();
   const navigate = useNavigate();
   const {isPending, mutateAsync} = useMutation({
     mutationFn: completProfile,
   });
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmitForm = async (data) => {
     try {
-      if (!name || !email || !role) throw new Error("اطلاعات کاربری خود را کامل کنید ");
-      const {message, user} = await mutateAsync({name, email, role});
+      if (!data || !data || !data) throw new Error("اطلاعات کاربری خود را کامل کنید ");
+      const {message, user} = await mutateAsync(data);
       toast.success(message);
       if (user.status !== 2) {
         toast("پروفایل شما در انتظار تایید است ");
@@ -29,7 +31,7 @@ function CompleteProfileForm() {
       if (user.role === "OWNER") return navigate("/owner");
       if (user.status === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
-      if (!name || !email || !role) {
+      if (!data || !data || !data) {
         toast.error(error.message);
       } else {
         toast.error(error?.response?.data?.message);
@@ -40,35 +42,66 @@ function CompleteProfileForm() {
   return (
     <div className="sm:max-w-96 m-auto mt-20">
       <h1 className="font-Vazir-Bold text-center">تکمیل اطلاعات</h1>
-      <form className="space-y-4 mt-4" onSubmit={handleSubmit}>
+      <form className="space-y-4 mt-4" onSubmit={handleSubmit(handleSubmitForm)}>
         <div>
-          <label className="text-sm" htmlFor="name">
-            نام و نام خانوادگی
-          </label>
-          <Textfield value={name} name="name" onChange={(e) => setname(e.target.value)} />
+          <Textfield
+            label="نام و نام خانوادگی"
+            type="text"
+            register={register}
+            name="name"
+            required
+            id="name"
+            ValidationSchema={{
+              required: "نام و نام خانوادگی الزامی است ",
+            }}
+            errors={errors}
+          />
         </div>
         <div>
-          <label className="text-sm" htmlFor="email">
-            ایمیل
-          </label>
-          <Textfield value={email} onChange={(e) => setemail(e.target.value)} name="email" />
+          <Textfield
+            label="ایمیل"
+            type="text"
+            register={register}
+            required
+            name="email"
+            id="email"
+            ValidationSchema={{
+              required: " ایمیل الزامی است",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "ایمیل نا معتبر است ",
+              },
+            }}
+            errors={errors}
+          />
         </div>
         <div className="flex items-center justify-center gap-x-6">
           <RedioInput
             label="کارفرما"
-            onChange={(e) => setrole(e.target.value)}
+            register={register}
             id="OWNER"
             value="OWNER"
-            name={role}
-            checked={role === "OWNER"}
+            name="role"
+            type="radio"
+            required
+            checked={watch("role") === "OWNER"}
+            ValidationSchema={{
+              required: " انتخاب نقش الزامی است",
+            }}
+            errors={errors}
           />
           <RedioInput
             label="فریلنسر"
-            onChange={(e) => setrole(e.target.value)}
+            register={register}
             id="FREELANCER"
             value="FREELANCER"
-            name={role}
-            checked={role === "FREELANCER"}
+            name="role"
+            type="radio"
+            checked={watch("role") === "FREELANCER"}
+            ValidationSchema={{
+              required: " انتخاب نقش الزامی است",
+            }}
+            errors={errors}
           />
         </div>
         <Button type="submit">{isPending ? <Loading /> : "تایید"}</Button>
