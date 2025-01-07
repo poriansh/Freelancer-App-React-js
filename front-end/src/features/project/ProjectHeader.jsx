@@ -9,7 +9,7 @@ function ProjectHeader() {
       <h1 className="font-Vazir-Black ">لیست پروژه ها</h1>
       <button className="btn btn--primary w-auto" onClick={() => setCreatProject(true)}> + پروژه    جدید</button>
       <Modal open={CreatProject} title="ساخت پروژه جدید" onClose={() => setCreatProject(false)}>
-        <CreatProjectForm />
+        <CreatProjectForm onClose={() => setCreatProject(false)} />
       </Modal>
     </div>
   );

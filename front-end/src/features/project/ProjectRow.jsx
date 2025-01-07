@@ -7,11 +7,12 @@ import Modal from "../../ui/Modal";
 import {useState} from "react";
 import ConfrimDelete from "../../ui/ConfrimDelete";
 import useRemoveProjects from "./useRemoveProjects";
+import CreatProjectForm from "./CreatProjectForm";
 
 function ProjectRow({project, index}) {
   const [Editopen, setEditopen] = useState(false);
   const [Deleteopen, setDeleteopen] = useState(false);
-  const { removeProject} = useRemoveProjects();
+  const {removeProject} = useRemoveProjects();
   return (
     <Table.Row>
       <td>{index + 1}</td>
@@ -45,7 +46,9 @@ function ProjectRow({project, index}) {
             title={`ویرایش ${project.title}`}
             open={Editopen}
             onClose={() => setEditopen(false)}
-          />
+          >
+            <CreatProjectForm onClose={() => setEditopen(false)} projectToEdit={project} />
+          </Modal>
           <button onClick={() => setDeleteopen(true)}>
             <TrashIcon className="w-5 h-5 text-error" />
           </button>
@@ -57,9 +60,11 @@ function ProjectRow({project, index}) {
             <ConfrimDelete
               onClose={() => setDeleteopen(false)}
               resourcename={project.title}
-              onConfrim={() => removeProject(project._id, {
-                onSuccess : () => setDeleteopen(false)
-              })}
+              onConfrim={() =>
+                removeProject(project._id, {
+                  onSuccess: () => setDeleteopen(false),
+                })
+              }
               disablad={false}
             />
           </Modal>

@@ -4,17 +4,63 @@ import Textfield from "../../ui/Textfield";
 import {useForm} from "react-hook-form";
 import {TagsInput} from "react-tag-input-component";
 import DatePickerField from "../../ui/DataPicker";
-function CreatProjectForm() {
-  const [tags, settags] = useState([]);
-  const [date, setdate] = useState(new Date());
+import useCategory from "./useCategory";
+import useCreatProject from "./useCreatProject";
+import useEditProject from "./useEditProject";
+function CreatProjectForm({onClose, projectToEdit = {}}) {
+  const {_id: editID} = projectToEdit;
+  const isEditSession = Boolean(editID);
+  const {title, description, budget, category, tags: prevtags, deadline} = projectToEdit;
+  let editValue = {};
+  if (isEditSession) {
+    editValue = {
+      title,
+      description,
+      budget,
+      category: category._id,
+    };
+  }
+
+  const [tags, settags] = useState(prevtags || []);
+  const [date, setdate] = useState(new Date(deadline || ""));
+  const {categorys} = useCategory();
+  const {CreatProject} = useCreatProject();
+  const {EditProject} = useEditProject();
   const {
     register,
     formState: {errors},
     handleSubmit,
-  } = useForm();
+    reset,
+  } = useForm({defaultValues: editValue});
 
   const onSubmit = (data) => {
-    console.log(data);
+    const newProject = {
+      ...data,
+      tags,
+      deadline: new Date(date).toISOString(),
+    };
+    if (isEditSession) {
+      EditProject(
+        {id: editID, newProject},
+        {
+          onSuccess: () => {
+            console.log("ویرایش پروژه موفقیت‌آمیز بود");
+            onClose(); // بستن فرم
+            reset(); // ریست کردن فرم
+          },
+          onError: (error) => {
+            console.error("خطا در ویرایش پروژه:", error);
+          },
+        }
+      );
+    } else {
+      CreatProject(newProject, {
+        onSuccess: () => {
+          onClose();
+          reset();
+        },
+      });
+    }
   };
   return (
     <form action="" className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -54,10 +100,16 @@ function CreatProjectForm() {
         }}
         errors={errors}
       />
-      <SelectOption register={register} required label="دسته بندی" name="category" />
+      <SelectOption
+        categorys={categorys}
+        register={register}
+        required
+        label="دسته بندی"
+        name="category"
+      />
       <div>
         <label className="mb-2 block text-secondary-700">تگ</label>
-        <TagsInput  value={tags} onChange={settags} name="tags" />
+        <TagsInput value={tags} onChange={settags} name="tags" />
       </div>
       <DatePickerField date={date} setdate={setdate} label="ددلاین" />
       <button type="submit" className="btn btn--primary mt-5">
