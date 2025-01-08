@@ -54,7 +54,7 @@ function App() {
             <Route index element={<Navigate to="dashbord" replace />} />
             <Route path="dashbord" element={<OwnerDashbord />} />
             <Route path="projects" element={<Projects />} />
-            <Route path="project/:id" element={<SingleProject />} />
+            <Route path="projects/:id" element={<SingleProject />} />
           </Route>
           <Route path="/" element={<Navigate to="/Login" replace />} />
           <Route path="*" element={<Notfound />} />
