@@ -127,6 +127,9 @@
   .badge--danger {
     @apply bg-red-500 text-white;
   }
+  .badge--warning {
+    @apply bg-yellow-500 text-white;
+  }
 }
 @layer utilities {
   
