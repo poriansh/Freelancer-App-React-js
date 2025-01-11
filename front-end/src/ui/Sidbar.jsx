@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 function Sidbar() {
   return (
-    <div className=" row-span-2 row-start-1 p-4 border-l border-gray-300">
+    <div className=" row-span-2 row-start-1 p-4 border-l border-secondary-300">
       <ul className="flex flex-col gap-3">
         <li>
           <CustomNavlink to="/owner/dashbord">

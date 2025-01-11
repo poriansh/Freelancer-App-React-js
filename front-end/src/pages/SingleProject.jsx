@@ -11,7 +11,7 @@ function SingleProject() {
   return (
     <div className="px-10 w-full overflow-x-auto mt-5 ">
       <ProjectHeader project={project} />
-      <ProposalsTable proposals={project.proposals} />
+      <ProposalsTable project={project} proposals={project.proposals} />
     </div>
   );
 }

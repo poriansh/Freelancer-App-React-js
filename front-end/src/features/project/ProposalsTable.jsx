@@ -1,7 +1,7 @@
 import Empty from "../../ui/Empty";
 import Table from "../../ui/Table";
 import ProposalsRow from "./ProposalsRow";
-function ProposalsTable({proposals}) {
+function ProposalsTable({proposals, project}) {
   if (!proposals.length) return <Empty resorcename="درخواستی" />;
   return (
     <Table>
@@ -16,7 +16,7 @@ function ProposalsTable({proposals}) {
       </Table.Header>
       <Table.Body>
         {proposals.map((proposal, index) => (
-          <ProposalsRow key={proposal._id} proposal={proposal} index={index} />
+          <ProposalsRow key={proposal._id} project={project} proposal={proposal} index={index} />
         ))}
       </Table.Body>
     </Table>

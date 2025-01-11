@@ -1,6 +1,6 @@
 import {Outlet} from "react-router-dom";
-import Header from "./Header";
-import Sidbar from "./Sidbar";
+import Header from "../ui/Header";
+import Sidbar from "../ui/Sidbar";
 
 function Applayout() {
   return (

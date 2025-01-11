@@ -3,14 +3,14 @@ import {removeProjectsApi} from "../../services/ProjectService";
 import toast from "react-hot-toast";
 
 function useRemoveProjects() {
-    const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
   const {isPending: isLoading, mutate: removeProject} = useMutation({
     mutationFn: removeProjectsApi,
     onSuccess: (data) => {
-        toast.success(data.message);
-        queryClient.invalidateQueries({
-          queryKey: ["owner-projects"],
-        });
+      toast.success(data.message);
+      queryClient.invalidateQueries({
+        queryKey: ["owner-projects"],
+      });
     },
     onError: (err) => {
       toast.error(err?.response?.data?.massage);

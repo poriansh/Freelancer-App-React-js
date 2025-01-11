@@ -103,7 +103,7 @@ function CreatProjectForm({onClose, projectToEdit = {}}) {
         errors={errors}
       />
       <SelectOption
-        categorys={categorys}
+        options={categorys}
         register={register}
         required
         label="دسته بندی"
