@@ -1,4 +1,5 @@
 function SelectOption({label, name, register, required, options}) {
+  console.log(options)
   return (
     <div>
       <label htmlFor={name} className="mb-2 block text-secondary-700">
@@ -6,8 +7,8 @@ function SelectOption({label, name, register, required, options}) {
       </label>
       <select {...register(name)} className="textinput">
         {options.map((option) => (
-          <option key={option.status} value={option.status}>
-            {option.lable}
+          <option key={option._id} value={option._id}>
+            {option.title}
           </option>
         ))}
       </select>

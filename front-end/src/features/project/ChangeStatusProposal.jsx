@@ -3,16 +3,16 @@ import SelectOption from "../../ui/SelectOption";
 import useChangeStatus from "./useChangeStatus";
 const options = [
   {
-    lable: "رد شده",
-    status: 0,
+    title: "رد شده",
+    _id: 0,
   },
   {
-    lable: "در انتظار تایید",
-    status: 1,
+    title: "در انتظار تایید",
+    _id: 1,
   },
   {
-    lable: "تایید شده",
-    status: 2,
+    title: "تایید شده",
+    _id: 2,
   },
 ];
 function ChangeStatusProposal({proposalId, onClose}) {

@@ -24,6 +24,7 @@ function CreatProjectForm({onClose, projectToEdit = {}}) {
   const [tags, settags] = useState(prevtags || []);
   const [date, setdate] = useState(new Date(deadline || ""));
   const {categorys} = useCategory();
+  
   const {CreatProject} = useCreatProject();
   const {EditProject} = useEditProject();
   const {

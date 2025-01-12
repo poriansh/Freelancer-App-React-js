@@ -3,12 +3,11 @@ import useUser from "../features/Authentication/useUser";
 import HeaderMenu from "./HeaderMenu";
 
 function Header() {
-  const { data } = useUser()
-  console.log(data)
+  const {isLoading ,user } = useUser()
   return <div className="bg-secondary-0 p-5">
-    <div className="felx items-center ">
+    <div className={`flex justify-end items-center gap-5 ${isLoading ? "blur-sm" : ""}`}>
+      <UserAvatar user={user}/>
       <HeaderMenu />
-      <UserAvatar/>
     </div>
   </div>;
 }
