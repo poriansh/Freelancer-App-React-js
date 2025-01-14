@@ -1,4 +1,5 @@
-import {createContext, useContext, useState, useEffect} from "react";
+import {createContext, useContext, useEffect} from "react";
+import useLocalStorage from "../src/hooks/useLocalStorage";
 
 // ایجاد Context
 const ThemeContext = createContext();
@@ -9,10 +10,7 @@ export const ThemeProvider = ({children}) => {
   const isSystemDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   // تنظیم state برای تم
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || (isSystemDarkMode ? "dark" : "light")
-  );
-
+  const [theme, setTheme] = useLocalStorage("theme", isSystemDarkMode ? "dark" : "light");
   // اعمال تم بر اساس state
   useEffect(() => {
     if (theme === "dark") {

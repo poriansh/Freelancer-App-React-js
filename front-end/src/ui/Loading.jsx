@@ -12,7 +12,7 @@ function Loading() {
         wrapperStyle={{
           display: "flex",
           justifyContent: "center",
-          "margin-top": "20px",
+          marginTop: "20px",
         }}
         wrapperClass
       />
