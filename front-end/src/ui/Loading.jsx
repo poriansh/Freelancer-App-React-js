@@ -10,8 +10,9 @@ function Loading() {
         color="#Ffff"
         ariaLabel="three-dots-loading"
         wrapperStyle={{
-            display: "flex",
-            justifyContent : "center"
+          display: "flex",
+          justifyContent: "center",
+          "margin-top": "20px",
         }}
         wrapperClass
       />
