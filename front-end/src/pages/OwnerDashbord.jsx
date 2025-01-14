@@ -1,5 +1,5 @@
 function OwnerDashbord() {
-  return <div>owner</div>;
+  return ;
 }
 
 export default OwnerDashbord;
