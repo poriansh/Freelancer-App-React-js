@@ -6,7 +6,7 @@ function ProjectHeader() {
   const [CreatProject, setCreatProject] = useState(false);
   return (
     <div className="flex items-center justify-between mb-5">
-      <h1 className="font-Vazir-Black ">لیست پروژه ها</h1>
+      <h1 className="font-Vazir-Black text-secondary-900">لیست پروژه ها</h1>
       <button className="btn btn--primary w-auto" onClick={() => setCreatProject(true)}>
         {" "}
         + پروژه جدید

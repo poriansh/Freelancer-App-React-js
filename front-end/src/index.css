@@ -104,7 +104,7 @@
     @apply block w-full  font-Vazir-Bold  rounded-md transition-all;
   }
   .btn--primary {
-    @apply px-4 py-2 bg-pramery-900 hover:bg-pramery-700 shadow shadow-pramery-500 text-white hover:bg-pramery-800 shadow-lg shadow-pramery-300;
+    @apply px-4 py-2 bg-pramery-900 hover:bg-pramery-700 shadow shadow-pramery-500 dark:shadow-none text-white hover:bg-pramery-800 shadow-lg shadow-pramery-300;
   }
   .btn--secondary {
     @apply bg-secondary-600 text-secondary-100;

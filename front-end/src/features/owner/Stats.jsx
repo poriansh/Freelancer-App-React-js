@@ -1,11 +1,16 @@
-function Stats({projects}) {
+import Stat from "./Stat";
+
+function Stats({ projects }) {
   const numOfProject = projects.length;
-  console.log(numOfProject);
-  const numOfAccepted = projects.map((p) => p.status === 2).length;
-  console.log(numOfAccepted);
-//    projects.reduce((acc, curr) => curr.proposal.length + acc, 0);
-//   console.log();
-  return <div></div>;
+  const numOfAccepted = projects.filter((p) => p.status === "OPEN").length;
+  const numOfProposals = projects.reduce((acc, curr) => curr.proposals.length + acc, 0);
+  return (
+    <div className="grid grid-cols-3 gap-8">
+      <Stat color="pramery" title="پروژه ها" value={numOfProject} />
+      <Stat color="green" title="پروژه های واگذار شده" value={numOfAccepted} />
+      <Stat color="orange" title="درخواست ها" value={numOfProposals} />
+    </div>
+  );
 }
 
 export default Stats;
