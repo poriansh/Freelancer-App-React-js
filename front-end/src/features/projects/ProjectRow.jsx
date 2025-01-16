@@ -16,7 +16,6 @@ function ProjectRow({project, index}) {
   const [Editopen, setEditopen] = useState(false);
   const [Deleteopen, setDeleteopen] = useState(false);
   const { removeProject } = useRemoveProjects();
-  console.log(project._id)
   return (
     <Table.Row>
       <td>{index + 1}</td>
@@ -36,11 +35,6 @@ function ProjectRow({project, index}) {
       <td>{project.freelancer?.name || "-"}</td>
       <td>
         <TogglePrijectStatus project={project} />
-        {/* {project.status === "OPEN" ? (
-          <span className="badge badge--success">باز</span>
-        ) : (
-          <span className=" badge badge--danger">بسته</span>
-        )} */}
       </td>
       <td>
         <div className="flex gap-3">
