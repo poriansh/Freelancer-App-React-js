@@ -1,5 +1,5 @@
 function Empty({resorcename}) {
-    return <p>
+    return <p className="text-secondary-900">
       {`${resorcename} یافت نشد `}
   </p>;
 }

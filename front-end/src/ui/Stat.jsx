@@ -1,4 +1,4 @@
-import { persianNumber } from "../../utils/persianNumber";
+import { persianNumber } from "../utils/persianNumber";
 
 const colors = {
   pramery: "bg-pramery-100 text-pramery-700",
