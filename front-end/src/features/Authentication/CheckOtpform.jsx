@@ -23,7 +23,7 @@ function CheckOtpform({phoneNumber, setstep, otpResponse, handelAhtentication, t
       if (!user.isActive) return navigate("/CompleteProfile");
       if (user.status !== 2) return navigate("/");
       if (user.role === "OWNER") return navigate("/owner");
-      if (user.status === "FREELANCER") return navigate("/freelancer");
+      if (user.role === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
       if (!otp) {
         toast.error(error.message);

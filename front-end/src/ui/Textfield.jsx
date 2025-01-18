@@ -1,7 +1,7 @@
 function Textfield({register, id, name, type = "text", ValidationSchema, label, required, errors}) {
   return (
     <div>
-      <label className="block text-secondary-700" htmlFor={id}>
+      <label className="block text-secondary-900" htmlFor={id}>
         {label}
         {required && <span className="text-error">*</span>}
       </label>
