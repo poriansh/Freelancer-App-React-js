@@ -101,7 +101,7 @@
     direction: ltr;
   }
   .btn {
-    @apply block w-full  font-Vazir-Bold  rounded-md transition-all;
+    @apply block w-full font-Vazir-Bold  rounded-md transition-all;
   }
   .btn--primary {
     @apply px-4 py-2 bg-pramery-900 hover:bg-pramery-700 shadow shadow-pramery-500 dark:shadow-none text-white hover:bg-pramery-800 shadow-lg shadow-pramery-300;
@@ -116,7 +116,7 @@
     @apply px-4 py-2 border border-red-600 text-red-600;
   }
   .textinput {
-    @apply w-full text-gray-500 bg-gray-100  p-2 shadow-lg rounded-md text-sm mt-2;
+    @apply w-full text-secondary-900 bg-secondary-100  p-2 shadow-lg rounded-md text-sm mt-2;
   }
   .btn--secondary {
     @apply bg-secondary-600 text-secondary-100;

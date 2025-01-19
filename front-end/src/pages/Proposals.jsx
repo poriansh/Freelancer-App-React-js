@@ -1,5 +1,5 @@
-import ProposalsHeader from "../features/freelancer/proposalsHeader";
-import ProposalTable from "../features/freelancer/ProposalTable";
+import ProposalsHeader from "../features/proposals/ProposalsHeader";
+import ProposalTable from "../features/proposals/ProposalTable";
 
 function Proposals() {
   return <div className="px-10 w-full overflow-x-auto mt-5">

@@ -33,7 +33,7 @@ function Athcontainer() {
     }
   };
   return (
-    <>
+    <div>
       {step === 1 ? (
         <SendOtpform
           handelAhtentication={handleSubmit(handelAhtentication)}
@@ -50,7 +50,7 @@ function Athcontainer() {
           phoneNumber={getValues("phoneNumber")}
         />
       ) : null}
-    </>
+    </div>
   );
 }
 

@@ -39,14 +39,16 @@ function CheckOtpform({phoneNumber, setstep, otpResponse, handelAhtentication, t
     };
   }, [time]);
   return (
-    <div className="sm:max-w-96 m-auto mt-20">
-      <form className="space-y-4" onSubmit={handelcheckOtp}>
-        <h1 className="text-center mb-4 font-Vazir-Bold">کد تایید را وارد کنید </h1>
+    <div className="sm:max-w-96 m-auto bg-secondary-0">
+      <form className="space-y-4 pt-10" onSubmit={handelcheckOtp}>
+        <h1 className="text-center mb-4 text-secondary-900 font-Vazir-Bold">
+          کد تایید را وارد کنید{" "}
+        </h1>
         <OTPInput
           value={otp}
           onChange={setotp}
           numInputs={6}
-          renderSeparator={<span>-</span>}
+          renderSeparator={<span className="text-secondary-900">-</span>}
           renderInput={(props) => <input type="number" {...props} />}
           containerStyle="flex flex-row-reverse gap-x-2 justify-center"
           inputStyle={{
@@ -58,13 +60,13 @@ function CheckOtpform({phoneNumber, setstep, otpResponse, handelAhtentication, t
           }}
         />
         <div className="flex justify-center gap-2 items-center">
-          {otpResponse && <p className="text-sm text-gray-700">{otpResponse?.message}</p>}
+          {otpResponse && <p className="text-sm text-secondary-900">{otpResponse?.message}</p>}
           <PencilSquareIcon
             onClick={() => setstep((s) => s - 1)}
             className="w-5 h-5 text-blue-500 cursor-pointer"
           />
         </div>
-        <div className="text-center text-xs text-gray-700 mt-10">
+        <div className="text-center text-xs text-secondary-900 mt-10">
           {time > 0 ? (
             <p>{time} ثانیه تا زمان ارسال مجدد کد </p>
           ) : (

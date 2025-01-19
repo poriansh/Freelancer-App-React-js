@@ -1,6 +1,6 @@
 import DashbordHeader from "../features/freelancer/DashbordHeader";
 import Stats from "../features/freelancer/Stats";
-import useFreelancer from "../features/freelancer/useFreelancer";
+import useFreelancer from "../features/proposals/useFreelancer";
 import Loading from "../ui/Loading";
 
 

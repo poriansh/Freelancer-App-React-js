@@ -5,8 +5,8 @@ import Loading from "../../ui/Loading";
 
 function SendOtpform({register, handelAhtentication, isPending}) {
   return (
-    <div className="sm:max-w-96 m-auto mt-20">
-      <form className="space-y-4" onSubmit={handelAhtentication}>
+    <div className="sm:max-w-96 m-auto bg-secondary-0">
+      <form className="space-y-4 pt-10" onSubmit={handelAhtentication}>
         <div>
           <Textfield
             label="شماره موبایل"
