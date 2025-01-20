@@ -9,8 +9,12 @@ function useCategory() {
   });
   const {categories = []} = data || {};
   const categorys = categories.map((item) => item);
+  const transformedCategories = categories.map((item) => ({
+    label: item.title,
+    value: item.englishTitle,
+  }));
 
-  return {isLoading, categorys};
+  return {isLoading, categorys, transformedCategories};
 }
 
 export default useCategory;

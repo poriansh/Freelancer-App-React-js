@@ -172,7 +172,6 @@ button {
 }
 button:disabled {
   cursor: default;
-  background-color: rgb(var(--color-secondary-100), 0.5);
   pointer-events: none;
   box-shadow: none;
 }
