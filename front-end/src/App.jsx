@@ -7,12 +7,13 @@ import Notfound from "./pages/Notfound";
 import OwnerDashbord from "./pages/OwnerDashbord";
 import Projects from "./pages/Projects";
 import SingleProject from "./pages/SingleProject";
-import { ThemeProvider } from "../context/ThemeContext";
+import {ThemeProvider} from "../context/ThemeContext";
 import OwnerLayout from "./features/owner/OwnerLayout";
 import FreelancerLayout from "./features/freelancer/FreelancerLayout";
 import FreelancerDashbord from "./pages/FreelancerDashbord";
 import Proposals from "./pages/Proposals";
 import SubmitedProjects from "./pages/SubmitedProjects";
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 // import Freelancer from "./pages/Freelancer";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ function App() {
     <>
       <ThemeProvider>
         <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen={false} />
           <Toaster
             toastOptions={{
               className: "",
@@ -64,9 +66,9 @@ function App() {
             </Route>
             <Route path="/freelancer" element={<FreelancerLayout />}>
               <Route index element={<Navigate to="dashbord" replace />} />
-              <Route path="dashbord" element={<FreelancerDashbord/>} />
-              <Route path="projects" element={<SubmitedProjects/>} />
-              <Route path="proposals"  element={<Proposals/>} />
+              <Route path="dashbord" element={<FreelancerDashbord />} />
+              <Route path="projects" element={<SubmitedProjects />} />
+              <Route path="proposals" element={<Proposals />} />
             </Route>
             <Route path="/" element={<Navigate to="/Login" replace />} />
             <Route path="*" element={<Notfound />} />
