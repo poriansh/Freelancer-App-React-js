@@ -2,7 +2,7 @@ import {ThreeDots} from "react-loader-spinner";
 
 function Loading() {
   return (
-    <div className="flex items-center justify-center h-screen bg-secondary-100">
+    <div >
       <ThreeDots
         height="20"
         width="40"
