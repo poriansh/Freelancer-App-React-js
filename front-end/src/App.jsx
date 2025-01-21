@@ -6,6 +6,9 @@ import { ThemeProvider } from "../context/ThemeContext";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import Loading from "./ui/Loading"; // کامپوننت لودینگ
+import AdminLayout from "./features/admin/AdminLayout";
+import AdminDashbord from "./pages/AdminDashbord";
+import Users from "./pages/Users";
 
 // کامپوننت‌ها به صورت lazy load بارگذاری می‌شوند
 const Login = lazy(() => import("./pages/Login"));
@@ -87,6 +90,20 @@ function App() {
                 <Route path="dashbord" element={<FreelancerDashbord />} />
                 <Route path="projects" element={<SubmitedProjects />} />
                 <Route path="proposals" element={<Proposals />} />
+              </Route>
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <AdminLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate to="dashbord" replace />} />
+                <Route path="dashbord" element={<AdminDashbord />} />
+                <Route path="projects" element={<SubmitedProjects />} />
+                <Route path="proposals" element={<Proposals />} />
+                <Route path="users" element={<Users />} />
               </Route>
               <Route path="/" element={<Navigate to="/Login" replace />} />
               <Route path="*" element={<Notfound />} />
