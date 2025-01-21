@@ -11,7 +11,7 @@ function FilterBtn({filterField, option}) {
 
   return (
     <div className="flex items-center gap-x-2 text-xs">
-      <span>وضعیت</span>
+      <spa className="text-secondary-900">وضعیت</spa>
       <div className="flex items-center gap-x-2">
         {option.map(({value, label}) => {
           const isActive = value === currentFilter;
