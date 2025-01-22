@@ -40,9 +40,9 @@ function CompleteProfileForm() {
   };
 
   return (
-    <div className="sm:max-w-96 m-auto mt-20">
-      <h1 className="font-Vazir-Bold text-center">تکمیل اطلاعات</h1>
-      <form className="space-y-4 mt-4" onSubmit={handleSubmit(handleSubmitForm)}>
+    <div className="sm:max-w-96 m-auto pt-10">
+      <h1 className="text-secondary-900 font-Vazir-Bold text-center">تکمیل اطلاعات</h1>
+      <form className="space-y-4 mt-10" onSubmit={handleSubmit(handleSubmitForm)}>
         <div>
           <Textfield
             label="نام و نام خانوادگی"

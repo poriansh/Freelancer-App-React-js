@@ -9,7 +9,7 @@ function SingleProject() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="px-10 w-full overflow-x-auto mt-5 ">
+    <div className="px-10 w-full mt-5 ">
       <ProjectHeader project={project} />
       <ProposalsTable project={project} proposals={project.proposals} />
     </div>

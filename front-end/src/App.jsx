@@ -1,27 +1,35 @@
-import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "../context/ThemeContext";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ProtectedRoute from "./ui/ProtectedRoute";
-import Loading from "./ui/Loading"; // کامپوننت لودینگ
 import AdminLayout from "./features/admin/AdminLayout";
 import AdminDashbord from "./pages/AdminDashbord";
 import Users from "./pages/Users";
-
+import Login from "./pages/Login";
+import CompleteProfile from "./pages/CompleteProfile";
+import Notfound from "./pages/Notfound";
+import OwnerDashbord from "./pages/OwnerDashbord";
+import Projects from "./pages/Projects";
+import SingleProject from "./pages/SingleProject";
+import OwnerLayout from "./features/owner/OwnerLayout";
+import FreelancerLayout from "./features/freelancer/FreelancerLayout";
+import FreelancerDashbord from "./pages/FreelancerDashbord";
+import Proposals from "./pages/Proposals";
+import SubmitedProjects from "./pages/SubmitedProjects";
 // کامپوننت‌ها به صورت lazy load بارگذاری می‌شوند
-const Login = lazy(() => import("./pages/Login"));
-const CompleteProfile = lazy(() => import("./pages/CompleteProfile"));
-const Notfound = lazy(() => import("./pages/Notfound"));
-const OwnerDashbord = lazy(() => import("./pages/OwnerDashbord"));
-const Projects = lazy(() => import("./pages/Projects"));
-const SingleProject = lazy(() => import("./pages/SingleProject"));
-const OwnerLayout = lazy(() => import("./features/owner/OwnerLayout"));
-const FreelancerLayout = lazy(() => import("./features/freelancer/FreelancerLayout"));
-const FreelancerDashbord = lazy(() => import("./pages/FreelancerDashbord"));
-const Proposals = lazy(() => import("./pages/Proposals"));
-const SubmitedProjects = lazy(() => import("./pages/SubmitedProjects"));
+// const Login = lazy(() => import("./pages/Login"));
+// const CompleteProfile = lazy(() => import("./pages/CompleteProfile"));
+// const Notfound = lazy(() => import("./pages/Notfound"));
+// const OwnerDashbord = lazy(() => import("./pages/OwnerDashbord"));
+// const Projects = lazy(() => import("./pages/Projects"));
+// const SingleProject = lazy(() => import("./pages/SingleProject"));
+// const OwnerLayout = lazy(() => import("./features/owner/OwnerLayout"));
+// const FreelancerLayout = lazy(() => import("./features/freelancer/FreelancerLayout"));
+// const FreelancerDashbord = lazy(() => import("./pages/FreelancerDashbord"));
+// const Proposals = lazy(() => import("./pages/Proposals"));
+// const SubmitedProjects = lazy(() => import("./pages/SubmitedProjects"));
 
 const queryClient = new QueryClient();
 
@@ -61,7 +69,6 @@ function App() {
               },
             }}
           />
-          <Suspense fallback={<Loading />}>
             <Routes>
               <Route path="/Login" element={<Login />} />
               <Route path="/CompleteProfile" element={<CompleteProfile />} />
@@ -108,7 +115,6 @@ function App() {
               <Route path="/" element={<Navigate to="/Login" replace />} />
               <Route path="*" element={<Notfound />} />
             </Routes>
-          </Suspense>
         </QueryClientProvider>
       </ThemeProvider>
     </>

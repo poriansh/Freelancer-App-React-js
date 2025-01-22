@@ -24,7 +24,7 @@
     "jsonwebtoken": "^9.0.0",
     "kavenegar": "^1.1.4",
     "moment-jalali": "^0.3.9",
-    "mongoose": "^7.1.0"
+    "mongoose": "^8.9.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

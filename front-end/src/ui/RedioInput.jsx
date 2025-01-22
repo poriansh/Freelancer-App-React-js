@@ -11,7 +11,7 @@ function RedioInput({name, type, value, id, label, register, checked, Validation
           checked={checked}
           value={value}
         />
-        <label className="text-xs" htmlFor={id}>
+        <label className="text-xs text-secondary-900" htmlFor={id}>
           {label}
         </label>
       </div>
