@@ -26,7 +26,7 @@ function CompleteProfileForm() {
       toast.success(message);
       if (user.status !== 2) {
         toast("پروفایل شما در انتظار تایید است ");
-        return navigate("/");
+        return navigate("/not-access");
       }
       if (user.role === "OWNER") return navigate("/owner");
       if (user.status === "FREELANCER") return navigate("/freelancer");

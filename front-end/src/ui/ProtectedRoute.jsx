@@ -18,10 +18,10 @@ function ProtectedRoute({children}) {
          return navigate("/Login");
 
         };
-    // if (!isVerified && !isLoading) {
-    //   toast.error("پروفایل شما هنوز تایید نشده است.");
-    //   navigate("/");
-    // }
+    if (!isVerified && !isLoading) {
+      toast.error("پروفایل شما در انتظار تایید است ");
+      navigate("/not-access");
+    }
       if (!isAuthorized && !isLoading) {
           navigate("/not-access", { replace: true });
           toast.error("شما به این قسمت دسترسی ندارید");

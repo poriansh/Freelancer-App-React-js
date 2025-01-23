@@ -1,5 +1,4 @@
 function SelectOption({label, name, register, required, options}) {
-  console.log(options)
   return (
     <div>
       <label htmlFor={name} className="mb-2 block text-secondary-700">
