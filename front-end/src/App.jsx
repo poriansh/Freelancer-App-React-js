@@ -1,8 +1,8 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "react-hot-toast";
-import { ThemeProvider } from "../context/ThemeContext";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import {Toaster} from "react-hot-toast";
+import {ThemeProvider} from "../context/ThemeContext";
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AdminLayout from "./features/admin/AdminLayout";
 import AdminDashbord from "./pages/AdminDashbord";
@@ -18,6 +18,7 @@ import FreelancerLayout from "./features/freelancer/FreelancerLayout";
 import FreelancerDashbord from "./pages/FreelancerDashbord";
 import Proposals from "./pages/Proposals";
 import SubmitedProjects from "./pages/SubmitedProjects";
+import Verify from "./pages/Verify";
 // کامپوننت‌ها به صورت lazy load بارگذاری می‌شوند
 // const Login = lazy(() => import("./pages/Login"));
 // const CompleteProfile = lazy(() => import("./pages/CompleteProfile"));
@@ -69,52 +70,53 @@ function App() {
               },
             }}
           />
-            <Routes>
-              <Route path="/Login" element={<Login />} />
-              <Route path="/CompleteProfile" element={<CompleteProfile />} />
-              <Route
-                path="/owner"
-                element={
-                  <ProtectedRoute>
-                    <OwnerLayout />
-                  </ProtectedRoute>
-                }
-              >
-                <Route index element={<Navigate to="dashbord" replace />} />
-                <Route path="dashbord" element={<OwnerDashbord />} />
-                <Route path="projects" element={<Projects />} />
-                <Route path="projects/:id" element={<SingleProject />} />
-              </Route>
-              <Route
-                path="/freelancer"
-                element={
-                  <ProtectedRoute>
-                    <FreelancerLayout />
-                  </ProtectedRoute>
-                }
-              >
-                <Route index element={<Navigate to="dashbord" replace />} />
-                <Route path="dashbord" element={<FreelancerDashbord />} />
-                <Route path="projects" element={<SubmitedProjects />} />
-                <Route path="proposals" element={<Proposals />} />
-              </Route>
-              <Route
-                path="/admin"
-                element={
-                  <ProtectedRoute>
-                    <AdminLayout />
-                  </ProtectedRoute>
-                }
-              >
-                <Route index element={<Navigate to="dashbord" replace />} />
-                <Route path="dashbord" element={<AdminDashbord />} />
-                <Route path="projects" element={<SubmitedProjects />} />
-                <Route path="proposals" element={<Proposals />} />
-                <Route path="users" element={<Users />} />
-              </Route>
-              <Route path="/" element={<Navigate to="/Login" replace />} />
-              <Route path="*" element={<Notfound />} />
-            </Routes>
+          <Routes>
+            <Route path="/Login" element={<Login />} />
+            <Route path="/" element={<Navigate to="/Login" replace />} />
+            <Route path="/CompleteProfile" element={<CompleteProfile />} />
+            <Route
+              path="/owner"
+              element={
+                <ProtectedRoute>
+                  <OwnerLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<Navigate to="dashbord" replace />} />
+              <Route path="dashbord" element={<OwnerDashbord />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="projects/:id" element={<SingleProject />} />
+            </Route>
+            <Route
+              path="/freelancer"
+              element={
+                <ProtectedRoute>
+                  <FreelancerLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<Navigate to="dashbord" replace />} />
+              <Route path="dashbord" element={<FreelancerDashbord />} />
+              <Route path="projects" element={<SubmitedProjects />} />
+              <Route path="proposals" element={<Proposals />} />
+            </Route>
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<Navigate to="dashbord" replace />} />
+              <Route path="dashbord" element={<AdminDashbord />} />
+              <Route path="projects" element={<SubmitedProjects />} />
+              <Route path="proposals" element={<Proposals />} />
+              <Route path="users" element={<Users />} />
+            </Route>
+            <Route path="/verify" element={<Verify />} />
+            <Route path="*" element={<Notfound />} />
+          </Routes>
         </QueryClientProvider>
       </ThemeProvider>
     </>

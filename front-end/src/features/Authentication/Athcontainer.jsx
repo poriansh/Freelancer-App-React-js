@@ -1,15 +1,24 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CheckOtpform from "./CheckOtpform";
 import SendOtpform from "./SendOtpform";
 import {useMutation} from "@tanstack/react-query";
 import {getOtp} from "../../services/AthService";
 import toast from "react-hot-toast";
 import {useForm} from "react-hook-form";
+import {useNavigate} from "react-router-dom";
+import useUser from "./useUser";
 function Athcontainer() {
+  const navigate = useNavigate();
   const init_Time = 90;
   const [step, setstep] = useState(1);
   const [time, settime] = useState(init_Time);
-  const {register, handleSubmit,getValues} = useForm();
+  const {register, handleSubmit, getValues} = useForm();
+  const {user} = useUser();
+  useEffect(() => {
+    if (user && user.role === "ADMIN") navigate("/admin", {replace: true});
+    if (user && user.role === "OWNER") navigate("/owner", {replace: true});
+    if (user && user.role === "FREELANCER") navigate("/freelancer", {replace: true});
+  }, [user, navigate]);
   const {
     isPending,
     mutateAsync,

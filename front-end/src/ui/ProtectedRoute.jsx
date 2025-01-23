@@ -20,7 +20,7 @@ function ProtectedRoute({children}) {
         };
     if (!isVerified && !isLoading) {
       toast.error("پروفایل شما در انتظار تایید است ");
-      navigate("/not-access");
+      navigate("/verify");
     }
       if (!isAuthorized && !isLoading) {
           navigate("/not-access", { replace: true });
