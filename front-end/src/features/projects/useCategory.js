@@ -3,7 +3,7 @@ import {getCategoty} from "../../services/CategoryService";
 
 function useCategory() {
   const {data, isLoading} = useQuery({
-    queryKey: ["gat-category"],
+    queryKey: ["get-category"],
     queryFn: getCategoty,
     retry: false,
   });

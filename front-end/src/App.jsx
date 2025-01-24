@@ -19,6 +19,7 @@ import FreelancerDashbord from "./pages/FreelancerDashbord";
 import Proposals from "./pages/Proposals";
 import SubmitedProjects from "./pages/SubmitedProjects";
 import Verify from "./pages/Verify";
+import Categorys from "./pages/categorys";
 // کامپوننت‌ها به صورت lazy load بارگذاری می‌شوند
 // const Login = lazy(() => import("./pages/Login"));
 // const CompleteProfile = lazy(() => import("./pages/CompleteProfile"));
@@ -113,6 +114,7 @@ function App() {
               <Route path="projects" element={<SubmitedProjects />} />
               <Route path="proposals" element={<Proposals />} />
               <Route path="users" element={<Users />} />
+              <Route path="category" element={<Categorys />} />
             </Route>
             <Route path="/verify" element={<Verify />} />
             <Route path="*" element={<Notfound />} />

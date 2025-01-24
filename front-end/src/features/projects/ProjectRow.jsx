@@ -59,6 +59,7 @@ function ProjectRow({project, index}) {
             <ConfrimDelete
               onClose={() => setDeleteopen(false)}
               resourcename={project.title}
+              lable="پروژه"
               onConfrim={() =>
                 removeProject(project._id, {
                   onSuccess: () => setDeleteopen(false),
@@ -71,7 +72,7 @@ function ProjectRow({project, index}) {
       </td>
       <td>
         <Link to={project._id}>
-          <EyeIcon className="w-5 h-5"/>
+          <EyeIcon className="w-5 h-5" />
         </Link>
       </td>
     </Table.Row>

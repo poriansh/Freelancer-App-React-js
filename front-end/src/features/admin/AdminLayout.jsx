@@ -23,6 +23,10 @@ function AdminLayout() {
           <ClipboardDocumentCheckIcon className="w-5 h-5" />
           <span>لیست کاربران </span>
         </CustomNavlink>
+        <CustomNavlink to="/admin/category">
+          <ClipboardDocumentCheckIcon className="w-5 h-5" />
+          <span>دسته بندی</span>
+        </CustomNavlink>
       </Sidbar>
     </Applayout>
   );

@@ -1,7 +1,7 @@
-function ConfrimDelete({resourcename, onClose, onConfrim}) {
+function ConfrimDelete({resourcename, onClose, onConfrim,lable}) {
   return (
     <div>
-      <h2 className="font-bold text-xs">{`ایا از حذف پروژه  ${resourcename} مطمُن هستید ؟ `}</h2>
+      <h2 className="font-bold text-xs">{`ایا از حذف ${lable}  ${resourcename} مطمُن هستید ؟ `}</h2>
       <div className="flex gap-2 items-center  mt-3">
         <button onClick={onConfrim} className="btn btn--primary flex-1">
           تایید
