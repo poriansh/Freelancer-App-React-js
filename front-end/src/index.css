@@ -147,6 +147,14 @@
   }
 }
 @layer utilities {
+  .scrollbar-hidden::-webkit-scrollbar {
+    height: 8px;
+    width: 6px;
+  }
+  .scrollbar-hidden::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #a3a1a1;
+  }
 }
 
 html,
@@ -218,9 +226,9 @@ table td {
   padding: 1rem 1rem;
   color: rgb(var(--color-secondary-600));
 }
-.sidbar__active{
+.sidbar__active {
   width: 4.4rem;
 }
-.sidbar__active > ul > li > a > span{
+.sidbar__active > ul > li > a > span {
   display: none;
 }
