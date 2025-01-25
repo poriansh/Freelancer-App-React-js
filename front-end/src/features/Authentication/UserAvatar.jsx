@@ -2,7 +2,7 @@
 function UserAvatar({user}) {
   return (
     <div className="flex gap-3 items-center">
-      <span className="font-Vazir text-secondary-900 text-sm">
+      <span className="font-Vazir text-secondary-900 text-sm hidden sm:block">
         {`  سلام `}
         {user?.name}
       </span>

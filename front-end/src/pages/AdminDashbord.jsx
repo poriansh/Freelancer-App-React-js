@@ -12,7 +12,7 @@ function AdminDashbord() {
   console.log(users)
   if (loading1 || loading2) return <Loading />;
   return (
-    <div className="px-10 mt-5">
+    <div className="px-5 mt-5">
       <DashbordHeader />
       <Stats
         proposals={proposals?.length || 0}

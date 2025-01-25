@@ -30,18 +30,14 @@ const statusOptions = [
 function ProjectHeader() {
   const {transformedCategories} = useCategory();
   return (
-    <div className="flex items-center justify-between mb-5">
+    <div className="flex flex-col sm:flex-row gap-5 items-center justify-between mb-5">
       <h1 className="font-Vazir-Black text-secondary-900">لیست همه پروژه ها</h1>
-      <div className="flex gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <FilterBtn filterField="status" option={statusOptions} />
         <FilterDropDown filterField="sort" option={sortOptions} />
         <FilterDropDown
           filterField="category"
           option={[
-            {
-              value: "All",
-              label: "همه دسته بندی",
-            },
             ...transformedCategories,
           ]}
         />

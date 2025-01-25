@@ -3,7 +3,7 @@ import CategoryTable from "../features/admin/category/CategoryTable";
 
 function Categorys() {
   return (
-    <div className="px-10 w-full mt-5">
+    <div className="px-5 w-full mt-5">
       <CategoryHeader/>
       <CategoryTable/>
     </div>

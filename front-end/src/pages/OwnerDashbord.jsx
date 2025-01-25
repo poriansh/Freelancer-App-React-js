@@ -8,7 +8,7 @@ function OwnerDashbord() {
   const { isLoading, projects } = useOwnerProjects()
   if(isLoading) return <Loading/>
   return (
-    <div className="px-10 mt-5">
+    <div className="px-5 mt-5">
       <DashbordHeader />
       <Stats projects={projects} />
     </div>

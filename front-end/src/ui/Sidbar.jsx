@@ -30,7 +30,7 @@ function Sidbar({children}) {
       <ul className="flex flex-col gap-3">{children}</ul>
       <button
         onClick={() => setopen((is) => !is)}
-        className="bg-secondary-0 shadow-md p-2 rounded-full absolute top-4 -left-5"
+        className="bg-secondary-0 hidden md:block shadow-md p-2 rounded-full absolute top-4 -left-5"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
