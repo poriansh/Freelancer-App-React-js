@@ -9,13 +9,13 @@ function Stat({ value, title, color}) {
   return (
     <div className="flex  flex-col items-center xs:flex-row bg-secondary-0 p-4 rounded-lg gap-4">
       <div
-        className={`flex w-36 h-36 items-center justify-center
+        className={`flex shrink-0 w-36 h-36 items-center justify-center
        p-2 rounded-full
        ${colors[color]}
   `}
       ></div>
       <div className="text-center space-y-3">
-        <h5 className="font-bold text-secondary-500 text-base text-nowrap self-center">{title}</h5>
+        <h5 className="font-bold text-secondary-500 text-base  self-center">{title}</h5>
         <p className="text-3xl font-bold text-secondary-900">{persianNumber(value)}</p>
       </div>
     </div>

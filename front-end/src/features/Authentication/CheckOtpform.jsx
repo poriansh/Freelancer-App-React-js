@@ -21,7 +21,7 @@ function CheckOtpform({phoneNumber, setstep, otpResponse, handelAhtentication, t
       const {message, user} = await mutateAsync({phoneNumber, otp});
       toast.success(message);
       if (!user.isActive) return navigate("/CompleteProfile");
-      if (user.status !== 2) return navigate("/");
+      if (user.status !== 2) return navigate("/verify");
       if (user.role === "OWNER") return navigate("/owner");
       if (user.role === "FREELANCER") return navigate("/freelancer");
       if (user.role === "ADMIN") return navigate("/admin");
@@ -61,7 +61,7 @@ function CheckOtpform({phoneNumber, setstep, otpResponse, handelAhtentication, t
           }}
         />
         <div className="flex justify-center gap-2 items-center">
-          {otpResponse && <p className="text-sm text-secondary-900">{otpResponse?.message}</p>}
+          {otpResponse && <p className="text-xs md:text-sm text-secondary-900">{otpResponse?.message}</p>}
           <PencilSquareIcon
             onClick={() => setstep((s) => s - 1)}
             className="w-5 h-5 text-blue-500 cursor-pointer"

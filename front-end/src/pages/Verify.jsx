@@ -12,7 +12,7 @@ function Verify() {
   return (
     <div className="text-center min-h-screen pt-20 bg-secondary-0">
       <h1 className="text-6xl font-bold text-pramery-900 mb-4">404</h1>
-      <p className="text-lg text-pramery-900 mb-6">
+      <p className="text-lg text-pramery-900 mb-6 p-5">
         پروفایل شما در انتظار تایید است لطفا صبور باشید پس از تایید از طریق لینک زیر میتوانید وارد
         پنل خود شوید
       </p>
