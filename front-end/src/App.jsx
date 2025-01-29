@@ -19,7 +19,7 @@ import FreelancerDashbord from "./pages/FreelancerDashbord";
 import Proposals from "./pages/Proposals";
 import SubmitedProjects from "./pages/SubmitedProjects";
 import Verify from "./pages/Verify";
-import Categorys from "./pages/categorys";
+import Categorys from "./pages/Categorys";
 // کامپوننت‌ها به صورت lazy load بارگذاری می‌شوند
 // const Login = lazy(() => import("./pages/Login"));
 // const CompleteProfile = lazy(() => import("./pages/CompleteProfile"));
