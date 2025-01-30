@@ -9,7 +9,6 @@ function AdminDashbord() {
   const { isLoading: loading1, projects } = useProjects();
   const { isLoading: loading2, proposals } = useFreelancer();
   const { users } = useUsers();
-  console.log(users)
   if (loading1 || loading2) return <Loading />;
   return (
     <div className="px-5 mt-5">

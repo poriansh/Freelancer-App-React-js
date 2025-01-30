@@ -6,7 +6,6 @@ import useFreelancer from "./useFreelancer";
 
 function ProposalTable() {
   const {proposals, isLoading} = useFreelancer();
-  console.log(proposals);
   if (isLoading) return <Loading />;
   if (!proposals.length) return <Empty resorcename="درخواست" />;
   return (
